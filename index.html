@@ -11,6 +11,8 @@
     var list=['lv-'+h.slice(2)+'.js','bq-settings.js','bq-sounds.js','bq-engine.js'], i=0;
     (function next(){ if(i>=list.length) return; var s=document.createElement('script'); s.src=list[i++]; s.onload=next; s.onerror=function(){ document.body.innerHTML='<p style="color:#fff;font:20px sans-serif;padding:20px">Game not found. <a href="./" style="color:#ffd54f">Back to the menu</a></p>'; }; document.body.appendChild(s); })();
   }
+  try{ var op=JSON.parse(localStorage.getItem('bq_open')||'{}'), rc=JSON.parse(localStorage.getItem('bq_rec')||'{}'), as=document.querySelectorAll('#menu details a');
+    for(var k=0;k<as.length;k++){ var g=as[k].getAttribute('href').slice(1); if(rc[g]) as[k].insertAdjacentHTML('beforeend',' ✅'); else if(!op[g]&&g!=='g-1-1-l1') as[k].insertAdjacentHTML('beforeend',' 🔒'); } }catch(e){}
   window.addEventListener('hashchange',go); go();
 })();
 </script></body></html>
