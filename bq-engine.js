@@ -1,11 +1,11 @@
 var BQ_CSS="*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}\nhtml,body{margin:0;height:100%;background:#0b1020;overflow:hidden;font-family:\"Trebuchet MS\",Verdana,system-ui,sans-serif;color:#1b1b2f;user-select:none;-webkit-user-select:none;touch-action:manipulation}\n#stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);overflow:hidden;background:#000;box-shadow:0 0 0 4px #000}\n#cv{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges}\n#hud{position:absolute;left:0;right:0;top:0;display:none;align-items:center;gap:8px;padding:4px 8px;font-weight:900;color:#fff;text-shadow:2px 2px 0 #000;font-size:clamp(11px,2.4vh,18px);pointer-events:none;z-index:5}\n#hud .grow{flex:1;text-align:center;opacity:.9}\n#hud .pill{background:rgba(0,0,0,.45);border-radius:8px;padding:2px 8px}\n#storm{display:none;align-items:center;gap:4px}\n#storm .bar{width:clamp(60px,14vw,140px);height:10px;background:#3b2a12;border:2px solid #000;border-radius:3px;overflow:hidden}\n#storm .bar i{display:block;height:100%;background:linear-gradient(90deg,#c9a26b,#8d6e3a);width:100%;transition:width .5s}\n#mute{position:absolute;right:6px;top:4px;z-index:30;font-size:clamp(16px,3.4vh,24px);background:rgba(0,0,0,.5);color:#fff;border:2px solid #fff;border-radius:10px;padding:0 6px;cursor:pointer}\n#ctrl{position:absolute;inset:0;display:none;pointer-events:none;z-index:6}\n#ctrl button{position:absolute;bottom:4%;pointer-events:auto;width:min(17vh,96px);height:min(17vh,96px);border-radius:50%;border:4px solid rgba(255,255,255,.85);background:rgba(0,0,0,.35);color:#fff;font-size:min(7vh,40px);font-weight:900;touch-action:none}\n#ctrl button.on{background:rgba(255,213,79,.6)}\n#bL{left:3%}#bR{left:calc(3% + min(19vh,108px))}#bJ{right:3%;width:min(20vh,112px)!important;height:min(20vh,112px)!important;background:rgba(229,57,53,.45)!important}\n#ov{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:10;background:rgba(5,8,20,.55);padding:2%}\n#ov.on{display:flex}\n.card{background:#fffdf5;border:4px solid #1b1b2f;border-radius:14px;box-shadow:6px 6px 0 #1b1b2f;padding:clamp(8px,2.2vh,18px) clamp(10px,2.5vw,22px);width:min(94%,760px);max-height:96%;overflow:auto;font-size:clamp(13px,3.1vh,20px);line-height:1.35;animation:pop .25s ease-out}\n@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}\n.card h1{margin:0 0 .3em;font-size:1.5em;letter-spacing:1px}\n.card h2{margin:0 0 .3em;font-size:1.2em}\n.btn{display:inline-block;margin:.35em .25em 0 0;padding:.45em .9em;font:inherit;font-weight:900;border:3px solid #1b1b2f;border-radius:10px;background:#ffd54f;box-shadow:3px 3px 0 #1b1b2f;cursor:pointer;color:#1b1b2f}\n.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #1b1b2f}\n.btn[disabled]{background:#cfcfcf;color:#555;cursor:default}\n.btn.go{background:#66bb6a}.btn.alt{background:#90caf9}\n.opts{display:grid;grid-template-columns:1fr 1fr;gap:.45em;margin-top:.5em}\n.opts.one{grid-template-columns:1fr}\n.opt{font:inherit;font-weight:700;text-align:left;padding:.5em .7em;border:3px solid #1b1b2f;border-radius:10px;background:#e3f2fd;box-shadow:3px 3px 0 #1b1b2f;cursor:pointer;color:#1b1b2f}\n.opt.sel{background:#fff59d}.opt.ok{background:#a5d6a7}.opt.bad{background:#ef9a9a;text-decoration:line-through;opacity:.8}\n.opt[disabled]{cursor:default}\n.cmd{display:inline-flex;align-items:center;gap:.4em;background:#1b1b2f;color:#ffd54f;border-radius:8px;padding:.1em .6em;font-weight:900;letter-spacing:1px}\n.cmdm{font-size:.8em;color:#555;margin:.2em 0 .4em;font-style:italic}\n.qtext{font-weight:700;font-size:1.08em;margin:.3em 0}\n.fb{margin-top:.5em;padding:.4em .6em;border-radius:8px;display:none;font-weight:700}\n.fb.ok{display:block;background:#e8f5e9;border:2px solid #2e7d32}\n.fb.bad{display:block;background:#ffebee;border:2px solid #c62828}\n.write{position:relative;border:5px solid #ff6f00;background:#fff8e1}\n.write.wings{border-color:#64b5f6;background:#f3f9ff}\n.write .flames{font-size:1.4em;text-align:center;letter-spacing:.2em;animation:flick .3s infinite alternate}\n@keyframes flick{from{transform:scaleY(1);opacity:1}to{transform:scaleY(1.15);opacity:.75}}\n.write .wingrow{font-size:1.4em;text-align:center;animation:flap .5s infinite alternate}\n@keyframes flap{from{transform:translateY(0)}to{transform:translateY(-5px)}}\n.term{font-size:1.9em;font-weight:900;text-align:center;margin:.1em 0;color:#bf360c;letter-spacing:1px}\n.wings .term{color:#1565c0}\n.def{font-size:1.1em;font-weight:700;text-align:center;background:#fff;border:2px dashed #999;border-radius:8px;padding:.4em}\n.ex{text-align:center;margin:.4em 0}\n.stamp{display:inline-block;border:3px solid #6a1b9a;color:#6a1b9a;border-radius:6px;padding:0 .4em;font-weight:900;letter-spacing:2px;transform:rotate(-4deg);background:#f3e5f5}\n.how{font-size:.85em;background:#eceff1;border-radius:8px;padding:.3em .6em;margin-top:.4em}\n.row{display:flex;gap:.6em;align-items:center;flex-wrap:wrap}\n.center{text-align:center}\n.big{font-size:2.2em;font-weight:900}\n.heroes{display:grid;grid-template-columns:repeat(5,1fr);gap:.4em;margin-top:.4em}\n.hero{border:3px solid #1b1b2f;border-radius:10px;background:#e8eaf6;padding:.2em;text-align:center;cursor:pointer;font-size:.72em;line-height:1.15;box-shadow:2px 2px 0 #1b1b2f}\n.hero canvas{width:100%;image-rendering:pixelated;display:block;background:linear-gradient(#bde3ff,#e6f6ff);border-radius:6px}\n.hero.sel{background:#ffd54f;transform:scale(1.05)}\n.hero b{display:block;font-size:1.1em}\ninput.name{font:inherit;font-size:1.3em;font-weight:800;padding:.3em .5em;border:3px solid #1b1b2f;border-radius:10px;width:100%;margin:.3em 0}\n.dlg{position:absolute;left:2%;right:2%;bottom:3%;z-index:9;background:#fffdf5;border:4px solid #1b1b2f;border-radius:12px;box-shadow:5px 5px 0 #1b1b2f;padding:.5em .8em;font-size:clamp(14px,3.5vh,22px);font-weight:700;min-height:22%;display:none}\n.dlg .who{position:absolute;top:-1.1em;left:.6em;background:#1b1b2f;color:#ffd54f;border-radius:8px;padding:0 .5em;font-size:.85em}\n.dlg .nxt{position:absolute;right:.5em;bottom:.2em;animation:flap .4s infinite alternate}\n.ttl{position:absolute;inset:0;z-index:9;display:none;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-shadow:4px 4px 0 #000;text-align:center;pointer-events:none}\n.ttl .a{font-size:clamp(14px,4vh,26px);font-weight:900;letter-spacing:3px;color:#ffd54f;animation:pop .5s}\n.ttl .b{font-size:clamp(26px,9vh,64px);font-weight:900;letter-spacing:2px;animation:zoom .7s}\n.ttl .c{font-size:clamp(14px,4vh,26px);font-weight:800;margin-top:.3em;animation:pop 1s}\n@keyframes zoom{from{transform:scale(3);opacity:0}to{transform:scale(1);opacity:1}}\n.logo{font-size:clamp(28px,11vh,80px);font-weight:900;letter-spacing:3px;color:#ffd54f;text-shadow:4px 4px 0 #c62828,8px 8px 0 #000;line-height:1}\n.blink{animation:blink 1s infinite}@keyframes blink{50%{opacity:.2}}\n#bann{position:absolute;left:50%;top:14%;transform:translateX(-50%);z-index:8;background:#fffdf5;border:4px solid #1b1b2f;border-radius:12px;padding:.3em .8em;font-weight:900;font-size:clamp(13px,3.4vh,22px);text-align:center;display:none;width:min(92%,720px);box-shadow:4px 4px 0 #1b1b2f}\n#lanes{position:absolute;inset:0;z-index:7;display:none;pointer-events:none}\n.fall{position:absolute;width:30%;background:#fff;border:3px solid #1b1b2f;border-radius:10px;padding:.35em;font-weight:800;font-size:clamp(11px,2.8vh,17px);text-align:center;box-shadow:3px 3px 0 #1b1b2f;pointer-events:auto;cursor:pointer;line-height:1.2}\n.fall.ok{background:#a5d6a7}.fall.bad{background:#ef9a9a}\n.sortbtns{position:absolute;bottom:4%;left:0;right:0;display:none;justify-content:space-between;padding:0 3%;z-index:8}\n.sortbtns .btn{font-size:clamp(15px,4vh,26px);padding:.4em 1em}\n.timer{height:10px;background:#ddd;border:2px solid #1b1b2f;border-radius:6px;overflow:hidden;margin:.3em 0}\n.timer i{display:block;height:100%;background:#43a047;width:100%}\n.check{display:flex;gap:.5em;align-items:flex-start;padding:.3em .4em;border-radius:8px;margin:.2em 0;background:#f1f8e9;cursor:pointer}\n.check input{width:1.3em;height:1.3em;flex:none;margin-top:.15em}\n.slot{border:3px dashed #888;border-radius:10px;padding:.35em .6em;margin:.25em 0;min-height:2em;background:#fafafa}\n.slot.full{border-style:solid;border-color:#2e7d32;background:#e8f5e9}\n.slot b{color:#6a1b9a}\n.match{display:grid;grid-template-columns:1fr;gap:.4em}\n.mrow{background:#f5f5f5;border-radius:8px;padding:.3em .5em}\n.chips{display:flex;flex-wrap:wrap;gap:.3em;margin-top:.2em}\n.chip{font:inherit;font-size:.85em;font-weight:700;border:2px solid #1b1b2f;border-radius:20px;padding:.15em .6em;background:#fff;cursor:pointer}\n.chip.sel{background:#fff59d}.chip.ok{background:#a5d6a7}.chip.bad{background:#ef9a9a}\n.work{font-family:inherit;font-weight:800;background:#263238;color:#c3e88d;border-radius:8px;padding:.4em .6em;margin:.3em 0;min-height:1.5em;white-space:pre-wrap}\n.final .big{color:#c62828}\n.score{font-size:2.6em;font-weight:900;color:#1b5e20;text-shadow:2px 2px 0 #c8e6c9}\n.sname{font-size:2.3em;font-weight:900;color:#0d47a1;line-height:1.1;word-break:break-word}\n#rot{position:fixed;inset:0;background:#0b1020;color:#fff;z-index:99;display:none;align-items:center;justify-content:center;text-align:center;font-size:22px;font-weight:800;padding:20px}\n@media (orientation:portrait) and (max-width:900px){#rot{display:flex}}\n.pop{position:absolute;z-index:11;font-weight:900;color:#ffd54f;text-shadow:2px 2px 0 #000;font-size:clamp(16px,4.5vh,30px);pointer-events:none;animation:up 1.2s forwards}\n@keyframes up{to{transform:translateY(-60px);opacity:0}}\n.shake{animation:shake .35s}@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}\nsmall{font-size:.8em}\n\n.shakeS{animation:shakeS .35s}@keyframes shakeS{0%,100%{transform:translate(-50%,-50%)}25%{transform:translate(calc(-50% - 8px),-50%)}75%{transform:translate(calc(-50% + 8px),-50%)}}\n\n#fade{position:absolute;inset:0;background:#000;opacity:0;transition:opacity .25s;pointer-events:none;z-index:20}\n.logo span{display:inline-block;animation:lb 1.3s ease-in-out infinite}.logo span:nth-child(2n){animation-delay:.16s}.logo span:nth-child(3n){animation-delay:.32s}.logo span:nth-child(5n){animation-delay:.48s}@keyframes lb{50%{transform:translateY(-9%)}}\n.card{background:linear-gradient(#fffef8,#fff6dc)}\n.opt{background:linear-gradient(#eef7ff,#d6ebff)}.opt.ok{background:#a5d6a7}.opt.bad{background:#ef9a9a}.opt.sel{background:#fff59d}\n.btn{background:linear-gradient(#ffe27a,#ffc928)}.btn.go{background:linear-gradient(#8fd694,#57b35c)}.btn.alt{background:linear-gradient(#b3dcff,#7fc1f7)}.btn[disabled]{background:#cfcfcf}\n.write{background:linear-gradient(#fffbea,#ffe9b8)}.write.wings{background:linear-gradient(#f7fbff,#dcefff)}\n\n#mg{position:absolute;inset:0;z-index:12;background:rgba(12,16,48,.92);color:#fff;display:flex;flex-direction:column;align-items:center;padding:2% 4%;font-size:clamp(14px,3.6vh,24px);touch-action:none}\n#mg .mgh{text-align:center;color:#ffd54f;text-shadow:2px 2px 0 #000}#mg .mgh small{color:#fff}\n#mg .timer{width:70%;flex:none}\n#mg .mga{position:relative;flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4em}\n#mg .mgbig{font-size:min(26vh,120px);transition:transform .08s;line-height:1}\n#mg .mgbtn{font-size:1.3em;padding:.5em 1.4em;touch-action:none}\n#mg .mgl{position:absolute;top:0;bottom:0;width:33.33%;border-left:2px dashed rgba(255,255,255,.2)}#mg .mgl[data-l=\"0\"]{left:0}#mg .mgl[data-l=\"1\"]{left:33.33%}#mg .mgl[data-l=\"2\"]{left:66.66%}\n#mg .mgbag{position:absolute;bottom:2%;font-size:min(16vh,70px);transform:translateX(-50%);transition:left .12s;pointer-events:none}\n#mg .mgs{position:absolute;font-size:min(13vh,56px);transform:translateX(-50%);transition:top 1.15s linear;pointer-events:none}\n#mg .mgc{position:absolute;top:0;right:2%;font-weight:900;color:#ffd54f}\n#mg .mgt{position:absolute;font-size:min(16vh,70px);cursor:pointer;animation:pop .15s}\n#mg .mgtrack{position:relative;width:90%;height:min(22vh,100px);background:rgba(255,255,255,.12);border:3px solid #fff;border-radius:14px}\n#mg .mgzone{position:absolute;left:62%;width:22%;top:0;bottom:0;background:rgba(76,175,80,.7)}\n#mg .mgcup{position:absolute;top:8%;font-size:min(15vh,64px);line-height:1;transition:left .05s linear}\n#mg .mgflag{position:absolute;right:0;top:8%;font-size:min(15vh,64px);line-height:1}\n#mg .mgrow{display:flex;gap:8%;width:90%;justify-content:space-between}\n#mg .mgr{font-size:2em;font-weight:900;text-shadow:3px 3px 0 #000}\n\n#ex{position:absolute;inset:0;z-index:13;background:#151a33;display:flex;flex-direction:column;align-items:center;padding:1% 2%;gap:1%}\n#ex .exw{position:relative;height:60%;aspect-ratio:320/118;max-width:100%;flex:none}\n#ex canvas{display:block;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges;border:4px solid #000;border-radius:10px;box-shadow:5px 5px 0 #000;background:#f4ead4}\n#ex .exb{position:relative;flex:1;width:92%;background:#fffdf5;border:4px solid #1b1b2f;border-radius:12px;box-shadow:4px 4px 0 #000;padding:.9em .8em .3em;font-size:clamp(13px,3.5vh,21px);font-weight:700;line-height:1.3;overflow:auto;margin-top:.6em}\n#ex .exb .who{position:absolute;top:-1.1em;left:.6em;background:#1c2a52;color:#ffd54f;border-radius:8px;padding:0 .5em;font-size:.85em}\n#ex .exn{position:absolute;right:3%;bottom:3%;font-size:clamp(13px,3.4vh,20px);margin:0}\n\n#ex .exb{padding:.4em .7em}#ex .exb .who{position:static;display:inline-block;margin:0 .5em .15em 0}\n\n.dlg{top:8%;bottom:auto;min-height:0;max-height:34%;overflow:visible;padding:.45em 2.2em .45em .8em;font-size:clamp(13px,3.3vh,20px)}\n\n/* v7: animals, desk flow, board */\n#mus{position:absolute;right:calc(6px + 2.4em);top:4px;z-index:30;font-size:clamp(16px,3.4vh,24px);background:rgba(0,0,0,.5);color:#fff;border:2px solid #fff;border-radius:10px;padding:0 6px;cursor:pointer}\n#an{position:absolute;inset:0;z-index:14;background:radial-gradient(circle,#31449a,#0b1020);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;overflow:hidden;cursor:pointer}\n#an .anr{position:absolute;left:50%;top:50%;width:220vh;height:220vh;margin:-110vh 0 0 -110vh;background:repeating-conic-gradient(rgba(255,255,255,.08) 0 10deg,transparent 10deg 20deg);animation:anspin 16s linear infinite}\n@keyframes anspin{to{transform:rotate(360deg)}}\n#an .ana{position:relative;font-size:min(40vh,180px);line-height:1.15;animation:anin .55s cubic-bezier(.2,1.6,.4,1),anbob .45s .55s infinite alternate}\n#an .ana img{height:1em;image-rendering:pixelated;vertical-align:middle}\n@keyframes anin{from{transform:translateX(140%) scale(.3) rotate(25deg)}to{transform:none}}\n@keyframes anbob{from{transform:translateY(0)}to{transform:translateY(-5%)}}\n#an .ant{position:relative;font-size:min(9vh,40px);font-weight:900;color:#ffd54f;text-shadow:3px 3px 0 #000;letter-spacing:1px}\n#an .ant b{color:#39ff14}\n#an .ans{position:relative;font-size:min(5vh,22px);font-weight:700;padding:0 4%}\n#an .and{position:relative;margin-top:.4em;background:#ff6a00;color:#000;font-weight:900;border-radius:10px;padding:.1em .7em;font-size:min(5vh,22px)}\n.anbig{font-size:2.4em;line-height:1.1}.anbig img,.card h2 img.ani{height:1em;image-rendering:pixelated;vertical-align:middle}\n.cmd img{height:1.1em;image-rendering:pixelated}\n.card.animal{border-color:#ff6a00;box-shadow:6px 6px 0 #ff6a00}\n.pts{display:flex;flex-direction:column;gap:.2em;margin-top:.2em}\n.pt{display:block;padding:.1em .5em;border-radius:6px;border:2px solid #b0bec5;background:#fff;color:#555;transition:all .2s}\n.pt.lit{background:#c8ffb8;border-color:#2e7d32;color:#1b1b2f;font-weight:700}\n.mk{display:inline-block;padding:0 .4em;border-radius:8px;border:3px solid #1b1b2f}.mk.g{background:#a5d6a7}.mk.l{background:#ffcc80}\n.exbd{position:absolute;left:32%;top:25%;width:63.5%;height:45%;color:#f6f3d8;font-family:\"Comic Sans MS\",\"Chalkboard SE\",\"Trebuchet MS\",sans-serif;font-weight:700;font-size:clamp(10px,3.7vh,21px);line-height:1.2;display:none;overflow:hidden;pointer-events:none}\n.exbd b{color:#39ff14}.exbd u{color:#ffb74d;text-decoration:none}\n#ex .exb.trap{background:#fff3e0;border-color:#e65100}\n.exos{display:flex;gap:.5em;flex-wrap:wrap;margin:.3em 0 2.4em}\n.exo{font:inherit;font-weight:800;padding:.25em .8em;border:3px solid #1b1b2f;border-radius:10px;background:#e3f2fd;box-shadow:3px 3px 0 #1b1b2f;color:#1b1b2f;cursor:pointer}\n.exo.ok{background:#a5d6a7}.exo.bad{background:#ef9a9a;text-decoration:line-through}\ninput.tcode{font-size:1.05em}\n.exbd.sm{font-size:clamp(9px,2.9vh,17px)}\n.tfoot{position:sticky;bottom:calc(-1 * clamp(8px,2.2vh,18px));background:#fff6dc;border-top:3px solid #ff6a00;margin:.4em -.3em 0;padding:.3em .3em clamp(8px,2.2vh,18px);display:flex;flex-direction:column;gap:.25em}\n.tfoot input.name{margin:0;font-size:1em;width:auto;flex:1;min-width:0}.tfoot .fb{margin:0}\nimg.ani{height:1.15em;width:auto;vertical-align:middle;image-rendering:pixelated}\n#an .ana img.ani{height:1em}.anbig img.ani{height:1em}\n.unl{margin-top:.5em;padding:.5em;border:3px dashed #1b1b2f;border-radius:12px;background:#fff8e1}.unl.ok{border-style:solid;background:#e8f5e9}.unl .how{margin:0 0 .3em}\n", BQ_SHELL="<div id=\"stage\"><canvas id=\"cv\"></canvas>\n<div id=\"hud\"><span id=\"hH\" class=\"pill\"></span><span id=\"hC\" class=\"pill\"></span><span class=\"grow\" id=\"hT\"></span><span id=\"storm\" class=\"pill\"><span id=\"stI\">\ud83c\udf2a\ufe0f</span><span class=\"bar\"><i></i></span></span><span id=\"hS\" class=\"pill\" style=\"margin-right:7.4em\"></span></div>\n<button id=\"mute\" aria-label=\"Sound on or off\">\ud83d\udd0a</button><button id=\"mus\" aria-label=\"Music on or off\">\ud83c\udfb5</button>\n<div id=\"ctrl\"><button id=\"bL\" aria-label=\"Left\">\u25c0</button><button id=\"bR\" aria-label=\"Right\">\u25b6</button><button id=\"bJ\" aria-label=\"Jump\">\u2912</button></div>\n<div id=\"bann\"></div><div id=\"lanes\"></div><div id=\"sortb\" class=\"sortbtns\"></div>\n<div id=\"fade\"></div><div id=\"ttl\" class=\"ttl\"></div><div id=\"dlg\" class=\"dlg\"></div><div id=\"ov\"></div></div>\n<div id=\"rot\">\ud83d\udcf1\u21bb<br>Turn your phone sideways<br>to play Business Quest.</div>";
 (function(){var st=document.createElement('style');st.textContent=BQ_CSS;document.head.appendChild(st);document.body.insertAdjacentHTML('beforeend',BQ_SHELL);})();
-/* Business Quest engine v10 - one engine, many levels. Content lives in window.LEVEL. */
+/* Business Quest engine v12 - one engine, many levels. Content lives in window.LEVEL. */
 (function(){
 'use strict';
 var L = window.LEVEL; window.BQ={log:[],cur:null};
 var SET = window.BQ_SETTINGS || {};
-var TEACHER = SET.teacher || L.teacher || 'Mr. Wizda', PACE = +((/[?&]pace=([\d.]+)/.exec(location.search)||[])[1]) || +SET.pace || 1, TCODE = SET.teacherCode ? String(SET.teacherCode) : null, HMAX = +SET.hearts || 5, MAXLOCK = SET.maxChallenges==null ? 1 : +SET.maxChallenges;
+var TEACHER = SET.teacher || L.teacher || 'Mr. Wizda', PACE = +((/[?&]pace=([\d.]+)/.exec(location.search)||[])[1]) || +SET.pace || 1, TCODE = SET.teacherCode ? String(SET.teacherCode) : null, HMAX = +SET.hearts || 5, MAXLOCK = L.free ? 0 : (SET.maxChallenges==null ? 1 : +SET.maxChallenges);
 var FAST = /[?&]fast=1/.test(location.search);
 var W = 320, H = 180, GROUND = 148, T = 16;
 function $(s){return document.querySelector(s);}
@@ -408,7 +408,7 @@ function stormLevel(){ return S.maxMarks?Math.max(0,1-S.marks/S.maxMarks):1; }
 var acc=0, last=0;
 function frame(ts){
   if(!last) last=ts; acc+=Math.min(100,ts-last); last=ts;
-  while(acc>=16.667){ for(var fk=0;fk<(FAST?10:1);fk++){ tick++; scene.update(); } acc-=16.667; K.jp=false; }
+  if(window.BQ.bellOpen){ acc=0; } else while(acc>=16.667){ for(var fk=0;fk<(FAST?10:1);fk++){ tick++; scene.update(); } acc-=16.667; K.jp=false; }
   ctx.imageSmoothingEnabled=false; scene.draw();
   requestAnimationFrame(frame);
 }
@@ -653,7 +653,7 @@ function rainStage(st){
     titleCard({a:'BOSS PHASE',b:st.title,c:st.sub,ms:2600,sound:'storm'}).then(round);
     function round(){
       if(ri>=st.rounds.length){ clearInterval(poll); lanes.style.display='none'; bann.style.display='none'; controls(false); Snd.music(null); done(); return; }
-      var rd=st.rounds[ri++]; controls(true,false);
+      var rd=st.rounds[ri++]; st._n=ri-1; controls(true,false);
       bann.innerHTML='Catch the meaning of: <span style="color:#c62828">'+rd.term+'</span>'; bann.style.display='block';
       lanes.innerHTML=''; lanes.style.display='block';
       var ord=shuffle([0,1,2]), cards=[];
@@ -685,7 +685,7 @@ function sortStage(st){
     titleCard({a:'BOSS PHASE',b:st.title,c:st.sub,ms:2600,sound:'storm'}).then(item);
     function item(){
       if(ii>=st.items.length){ cur=null; sortb.style.display='none'; bann.style.display='none'; Snd.music(null); done(); return; }
-      cur=st.items[ii++]; yx=W+20; target=null;
+      cur=st.items[ii++]; st._n=ii-1; yx=W+20; target=null;
       window.BQ.cur={type:'sort',a:cur.a}; bann.innerHTML=(st.carrier||'🐂 The yak carries')+': <span style="color:#6a1b9a">'+cur.t+'</span><div class="timer"><i></i></div>'; bann.style.display='block'; sortb.style.display='flex';
       var bar=bann.querySelector('.timer i'), t0=Date.now(), lim=(st.secs||8)*1000, answered=false;
       function answer(side){ if(answered) return; answered=true; clearInterval(iv); sortb.style.display='none';
@@ -716,7 +716,7 @@ function dodgeStage(st){
     titleCard({a:'BOSS PHASE',b:st.title,c:st.sub,ms:2600,sound:'storm'}).then(next);
     function next(){
       if(ci>=st.claims.length){ cur=null; gateX=null; controls(false); bann.style.display='none'; Snd.music(null); done(); return; }
-      cur=st.claims[ci++]; result=null; gateX=W+60; lastJump=-999; claimT=tick; controls(true,true); $('#bL').style.display='none'; $('#bR').style.display='none';
+      cur=st.claims[ci++]; st._n=ci-1; result=null; gateX=W+60; lastJump=-999; claimT=tick; controls(true,true); $('#bL').style.display='none'; $('#bR').style.display='none';
       window.BQ.cur={type:'dodge',a:cur.a}; bann.innerHTML='🥔😎 Joe says: "'+cur.t+'"<br><small>JUMP = 👍 TRUE &nbsp;&nbsp; STAY DOWN = 👎 FALSE</small>'; bann.style.display='block';
     }
     function judge(ok,saidTrue){
@@ -740,7 +740,7 @@ function readIt(t){
       '<div class="center"><button class="btn go">.</button></div>', 'write wings');
     var b=c.querySelector('.btn');
     countdown(b,t.secs||25,isCase?'📖 Reading...':'✍️ Keep writing...',isCase?'Got it ▶':'✅ I wrote it!').then(function(){ Snd.fx('ding'); });
-    clickOnce(b).then(function(){ addScore(isCase?10:30); hide(); done(); });
+    clickOnce(b).then(function(){ addScore(isCase?10:30); t._d=1; hide(); done(); });
   });
 }
 function flashQ(q,head,done){
@@ -795,7 +795,7 @@ function sha256(s){ function rr(v,a){return (v>>>a)|(v<<(32-a));} var mp=Math.po
   for(i=0;i<8;i++){ for(j=3;j+1;j--){ var b=(h[i]>>(j*8))&255; res+=((b<16)?0:'')+b.toString(16); } }
   return res; }
 function codeOK(v){ return codeOK0(v)||codeOK0(String(v).toLowerCase().replace(/\s+/g,'')); }
-function codeOK0(v){ return TCODE!==null ? v===TCODE : sha256('bq:'+v)===(SET.teacherCodeHash||'bed2c56d30ccc826c2aa2a2070dded9c52eb2255efbe2fd33a443cae110dc7be'); }
+function codeOK0(v){ return TCODE!==null ? v===TCODE : sha256('bq:'+v)===(SET.teacherCodeHash||'28236939743aa318e415138beb6707b5f7d55ddfcd1508984ce97a73fec2b1f7'); }
 window.BQ_sha256=sha256;
 
 function teacherGate(headHtml){
@@ -810,7 +810,7 @@ function teacherGate(headHtml){
 function challenge(){
   return teacherGate('<div class="center"><div class="big">💔</div><h2>Out of hearts!</h2><div>Go to <b>'+TEACHER+'</b>. He will give you a <b>paper test</b>.<br>Finish it, hand it in, and he will unlock your game.</div></div>').then(function(){ S.locks++; S.needLock=0; S.hearts=HMAX; updHUD(); hide(); popAt('❤️ Hearts refilled!'); });
 }
-function ask(q){ return (q.sk?explainIt(q.sk):Promise.resolve()).then(function(){ return askRaw(q); }).then(function(){ return S.needLock?challenge():null; }); }
+function ask(q){ return (q.sk?explainIt(q.sk):Promise.resolve()).then(function(){ return askRaw(q); }).then(function(){ q._d=1; return S.needLock?challenge():null; }); }
 function tGate(q,done){
   teacherGate('<div class="center"><div class="big">🧑‍🏫</div><h2>TEACHER CHECK</h2><div>Take your <b>notebook</b> and your <b>book</b> to '+TEACHER+'. He checks your answers for:<br><b>'+q.title+'</b></div></div>').then(function(c){
     c.innerHTML='<h2>🧑‍🏫 '+TEACHER+' marks: '+q.title+'</h2>'+q.qs.map(function(x,i){ return '<div class="mrow"><b>'+(i+1)+'. '+x.q+'</b><div class="fb ok" style="display:block"><small>'+x.model+'</small></div><div class="row tmarks" data-i="'+i+'"></div></div>'; }).join('')+'<div class="center"><button class="btn go" disabled>Save marks ✔</button></div>';
@@ -877,19 +877,20 @@ function fixIt(q,m,byTeacher,done){
   countdown(b,byTeacher?(q.fix||30):15,'🖊️ Fixing...','✅ I fixed it ▶').then(function(){ Snd.fx('ding'); });
   clickOnce(b).then(function(){ addScore(20); hide(); done(); });
 }
+var DSAVE=SET.deskSaveCode===true;
 function deskFlow(q,done){
   teacherGate('<div class="center"><div class="anbig">'+aniHTML(q.cmd)+'</div><h2>Take your notebook to '+TEACHER+'</h2><div>He marks your <b>'+q.cmd+'</b> answer. Do not close this page.</div></div>').then(function(c){
     window.BQ.cur={type:'deskmark',q:q}; c.classList.add('animal');
     c.innerHTML='<h2>🧑‍🏫 '+TEACHER+' marks · '+aniHTML(q.cmd)+' '+q.cmd+' ['+q.marks+']</h2><div><small>'+fill(q.q)+'</small></div><div class="fb ok" style="display:block"><b>Best answer:</b><br>'+fill(q.model)+(q.why?'<br><small><b>Examiner note:</b> '+fill(q.why)+'</small>':'')+'</div>'+ptsHTML(q,false)+
-      '<div class="tfoot"><div class="row" style="justify-content:center"><b>Mark for '+S.first+':</b><span class="row tmarks"></span></div><div class="row" style="justify-content:center;flex-wrap:nowrap"><input class="name tcode" type="password" autocomplete="off" placeholder="Teacher code"><button class="btn go" style="margin:0;white-space:nowrap">Save mark 🔒</button></div><div class="fb"></div></div>';
+      '<div class="tfoot"><div class="row" style="justify-content:center"><b>Mark for '+S.first+':</b><span class="row tmarks"></span></div><div class="row" style="justify-content:center;flex-wrap:nowrap">'+(DSAVE?'<input class="name tcode" type="password" autocomplete="off" placeholder="Teacher code">':'')+'<button class="btn go" style="margin:0;white-space:nowrap">Save mark ✔</button></div><div class="fb"></div></div>';
     c.scrollTop=0; var got=null, row=c.querySelector('.tmarks'), inp=c.querySelector('.tfoot input'), fb=c.querySelector('.tfoot .fb');
     c.querySelectorAll('.pt').forEach(function(p){ p.style.cursor='pointer'; onTap(p,function(){ p.classList.toggle('lit'); Snd.fx('pop'); }); });
     for(var m=0;m<=q.marks;m++){ (function(m){ var ch=document.createElement('button'); ch.className='chip'; ch.textContent=m; ch.style.fontSize='1.25em'; ch.style.minWidth='2em'; row.appendChild(ch); onTap(ch,function(){ got=m; row.querySelectorAll('.chip').forEach(function(z){ z.classList.toggle('sel',z===ch); }); }); })(m); }
     var saved=false;
     function ok(){ if(saved) return; if(got===null){ fb.className='fb bad'; fb.textContent='Tap a mark first.'; return; }
-      if(!codeOK(inp.value.trim())){ fb.className='fb bad'; fb.textContent='Wrong code. Only '+TEACHER+' can save the mark.'; inp.value=''; Snd.fx('wrong'); return; }
+      if(DSAVE&&!codeOK(inp.value.trim())){ fb.className='fb bad'; fb.textContent='Wrong code. Only '+TEACHER+' can save the mark.'; inp.value=''; Snd.fx('wrong'); return; }
       saved=true; S.tmarks+=got; addScore(got*100); if(got>0) popAt('+'+got+' from '+TEACHER); fixIt(q,got,true,done); }
-    onTap(c.querySelector('.btn.go'),ok); inp.addEventListener('keydown',function(e){ if(e.key==='Enter') ok(); });
+    onTap(c.querySelector('.btn.go'),ok); if(inp) inp.addEventListener('keydown',function(e){ if(e.key==='Enter') ok(); });
   });
 }
 (function(){ if(SET.deskAnimals==null) return; var want=+SET.deskAnimals, all=[]; L.stages.forEach(function(st){ (st.items||st.qs||[]).forEach(function(it){ if(it.type==='animal') all.push(it); }); });
@@ -1051,32 +1052,145 @@ function play(from){
     if(i>=L.stages.length){ finish(); return; }
     if(S.needLock){ challenge().then(step); return; }
     if(i===L.stages.length-1&&S.missed.length&&!S.revDone){ S.revDone=1; var rq=S.missed.slice(0,6).map(function(m){ var c={}; for(var k in m) c[k]=m[k]; c.retry=1; c.cmd='SECOND CHANCE'; return c; }); quizStage({kicker:'FIX YOUR MISTAKES',title:'🔁 SECOND CHANCE',sub:'You missed these. Get them right now!',qs:rq}).then(function(){ trans(step); }); return; }
-    save(i); var st=L.stages[i], t0=Date.now(), k0=tick; curPlace=st.place||L.place||null;
+    save(i); window.BQ.si=i; if(bellBtn) bellBtn.style.display='block'; var st=L.stages[i], t0=Date.now(), k0=tick; curPlace=st.place||L.place||null;
     runStageByType(st).then(function(){ window.BQ.log.push({type:st.type,ms:Date.now()-t0,ticks:tick-k0}); i++; trans(step); });
   }
   step();
 }
+/* ---------- v12: the red bell. Class is over before the level is: the teacher types the code and sees an ESTIMATED final score ---------- */
+var BELL=!L.free && SET.bell!==false, bellBtn=null, bellOv=null; window.BQ.bellOpen=false;
+function bellInit(){
+  if(!BELL) return;
+  var css=document.createElement('style');
+  css.textContent='#bell{position:absolute;right:calc(6px + 4.8em);top:4px;z-index:30;font-size:clamp(16px,3.4vh,24px);background:#d32f2f;color:#fff;border:2px solid #fff;border-radius:10px;padding:0 6px;cursor:pointer;display:none}#bellov{position:absolute;inset:0;display:none;align-items:center;justify-content:center;z-index:40;background:rgba(5,8,20,.82);padding:2%}#bellov .card{border-color:#b71c1c;box-shadow:6px 6px 0 #b71c1c}';
+  document.head.appendChild(css);
+  bellBtn=document.createElement('button'); bellBtn.id='bell'; bellBtn.setAttribute('aria-label','Out of time: early score'); bellBtn.textContent='🔔'; stageEl.appendChild(bellBtn);
+  bellOv=document.createElement('div'); bellOv.id='bellov'; stageEl.appendChild(bellOv);
+  $('#hS').style.marginRight='10.6em';
+  onTap(bellBtn,function(e){ if(e&&e.stopPropagation) e.stopPropagation(); bellAsk(); }); bellBtn.addEventListener('click',function(e){ e.stopPropagation(); });
+}
+function bellClose(){ if(!bellOv) return; bellOv.style.display='none'; bellOv.innerHTML=''; window.BQ.bellOpen=false; }
+function bellEstimate(){
+  /* What is done so far: every stage before the current one, and in the current stage every card already finished (_d) or round already played (_n).
+     am/as/at = tap, self and teacher marks the student has already had the chance to earn.
+     fbDone/fbTot = the fixed bonus points on offer (flags, scrolls read, lesson checks, stamps, story choices, written animals): so far / in the whole game. */
+  var si=window.BQ.si==null?-1:window.BQ.si, am=0, as=0, at=0, done=0, total=0, fbDone=0, fbTot=0, runDone=0, runTot=0;
+  function chk(it){ var n=0; if(it&&it.sk&&it.sk.frames) it.sk.frames.forEach(function(f){ if(f.check) n++; }); return 20*n; }
+  function bonus(st,it,isQ){
+    if(!isQ) return (it.tag==='case'?10:30)+chk(it);
+    if(it.type==='animal') return chk(it)+(BATCH?40:20);
+    if(it.type==='flash') return chk(it)+((st.type!=='quiz'&&it.teacher)?20:0);
+    return chk(it);
+  }
+  L.stages.forEach(function(st,k){
+    var list=st.items||st.qs||st.rounds||st.claims||(st.type==='story'?st.stages:null), n=list?list.length:1, full=k<si, cur=k===si;
+    total+=n;
+    if(st.type==='run'||st.type==='quiz'){
+      var last=-1, ans=[], allAn=true, flag=st.type==='run'?200:0;
+      fbTot+=flag; if(full) fbDone+=flag;
+      list.forEach(function(it,j){
+        var isQ=st.type==='quiz'||it.kind==='q', d=full||(cur&&!!it._d), v=bonus(st,it,isQ);
+        fbTot+=v;
+        if(isQ&&it.type==='animal'){ ans.push(it); if(!d) allAn=false; }
+        if(!d) return; last=j; fbDone+=v; if(!isQ) return;
+        if(it.type==='animal'){ if(!it.desk) as+=it.marks; }
+        else if(it.type==='tgate'){ }
+        else if(it.type==='flash'){ if(st.type==='quiz'||!it.teacher) as+=it.marks; }
+        else am+=qMarks(it);
+      });
+      ans.forEach(function(it){ if(it.desk&&(full||(cur&&(BATCH?allAn:it._d)))) at+=it.marks; });
+      if(full) done+=n; else if(cur) done+=last+1;
+      if(st.type==='run'){ runTot+=n; runDone+=full?n:(cur?last+1:0); }
+    } else if(st.type==='rain'||st.type==='sort'||st.type==='dodge'){ if(full||cur){ var c=full?n:Math.min(n,st._n||0); am+=c; done+=c; } }
+    else if(st.type==='forge'){ if(full){ am+=st.slots.length; done+=n; } }
+    else if(st.type==='write'){ if(full){ as+=st.marks; done+=n; } }
+    else if(st.type==='notebook'){ fbTot+=50; if(full){ fbDone+=50; done+=n; } }
+    else if(st.type==='story'){ fbTot+=50*n; if(full){ fbDone+=50*n; done+=n; } }
+    else if(full) done+=n;
+  });
+  var M=S.maxMarks, SM=S.selfMax, TM=S.tmax;
+  am=Math.min(am,M); as=Math.min(as,SM); if(S.tmarks>0) at=TM; at=Math.min(at,TM);
+  var p=total?Math.min(1,done/total):0, cl=function(x){ return Math.max(0,Math.min(1,x)); };
+  var rAll=(am+as)>0?cl((S.marks+S.self)/(am+as)):null;
+  var rM=am>0?cl(S.marks/am):rAll, rS=as>0?cl(S.self/as):rAll, rT=at>0?cl(S.tmarks/at):rAll;
+  if(rM==null) rM=rT; if(rS==null) rS=rM; if(rT==null) rT=rM;
+  var dflt=false;
+  if(rM==null){ if(p<0.1) return {none:true,p:p}; dflt=true; rM=rS=rT=0.7; }   /* nothing answered yet, but a good part is played: assume 7 right in 10 and say so */
+  var pm=Math.max(S.marks,Math.min(M,S.marks+(M-am)*rM)), ps=Math.max(S.self,Math.min(SM,S.self+(SM-as)*rS)), pt=Math.max(S.tmarks,Math.min(TM,S.tmarks+(TM-at)*rT));
+  /* the other points, in three parts.
+     Fixed bonuses (flags, scrolls, lesson checks, stamps): the student gets the rest by playing on, so they are added in full.
+     Coins: they lie along the runs, so they grow with the share of the runs already played.
+     Streak bonuses minus penalties: they come with right answers, so they grow with the tap marks still to come. */
+  var other=S.score-100*(S.marks+S.self+S.tmarks), coinPts=10*(S.coins||0), rest=other-fbDone-coinPts;
+  var pc=(runTot>0&&runDone>0)?coinPts/Math.max(0.15,runDone/runTot):coinPts;
+  var pr=(rest>0&&S.marks>0)?rest*Math.min(4,pm/S.marks):rest;
+  var po=fbTot+pc+pr, rO=pr;
+  var est=Math.max(S.score,Math.round((100*(pm+ps+pt)+po)/10)*10), pct=M?pm/M:0, stars=pct>=0.9?3:pct>=0.7?2:pct>=0.4?1:0;
+  return {est:est,stars:stars,p:p,pm:pm,ps:ps,pt:pt,M:M,SM:SM,TM:TM,am:am,as:as,at:at,sofar:S.score,other:other,fbDone:fbDone,fbTot:fbTot,rO:rO,dflt:dflt};
+}
+window.BQ.bellEstimate=bellEstimate;
+function bellAsk(){
+  if(!bellOv||window.BQ.bellOpen) return; window.BQ.bellOpen=true; Snd.fx('boom'); bellOv.style.display='flex';
+  bellOv.innerHTML='<div class="card"><div class="center"><div class="big">🔔 OUT OF TIME?</div><div>Tap the bell only when <b>'+TEACHER+'</b> says class is over.</div>'+
+    '<div class="how" style="font-size:1.05em;margin-top:.5em">👉 Take your <b>notebook</b> and <b>this screen</b> to '+TEACHER+'. He types his code to see your score.<br>🙈 Your score is hidden until then.</div>'+
+    '<div class="unl"><input class="name tcode" type="password" autocomplete="off" placeholder="Teacher code"><div class="fb"></div>'+
+    '<div class="row" style="justify-content:center"><button class="btn back">◀ Back to the game</button><button class="btn go">Show the score 🔓</button></div></div></div></div>';
+  var inp=bellOv.querySelector('input'), fb=bellOv.querySelector('.fb');
+  function ok(){
+    if(!codeOK(inp.value.trim())){ fb.className='fb bad'; fb.textContent='Wrong code. Only '+TEACHER+' can show the score.'; inp.value=''; Snd.fx('wrong'); return; }
+    bellShow();
+  }
+  onTap(bellOv.querySelector('.back'),bellClose); onTap(bellOv.querySelector('.go'),ok); inp.addEventListener('keydown',function(e){ if(e.key==='Enter') ok(); });
+}
+function bellShow(){
+  var e=bellEstimate(), head='<div class="big">🔔 EARLY SCORE</div><div>'+fill(L.code+' · '+L.short)+'</div><div class="sname">'+S.name+'</div>';
+  if(e.none){
+    bellOv.innerHTML='<div class="card"><div class="center final">'+head+'<div class="how" style="font-size:1.05em;margin-top:.5em">Too little of this '+(L.boss?'boss':'level')+' is played to estimate a score.<br>No score was recorded.</div><button class="btn go back">◀ Back to the game</button></div></div>';
+    onTap(bellOv.querySelector('.back'),bellClose); return;
+  }
+  Snd.fx('unlock'); var r=store.get('bq_rec',{}); r[L.gid]={score:e.est,name:S.name,t:Date.now(),est:1,played:Math.round(e.p*100),sofar:S.score}; store.set('bq_rec',r);
+  var rd=function(x){ return Math.round(x); }, pc=Math.round(e.p*100);
+  bellOv.innerHTML='<div class="card"><div class="center final">'+head+
+    '<div class="score">≈ '+e.est.toLocaleString('en-US')+' points</div>'+
+    '<div style="font-size:1.6em">'+'⭐'.repeat(e.stars)+'☆'.repeat(3-e.stars)+'</div>'+
+    '<div><b>Estimated final score.</b> Played: <b>'+pc+'%</b> of this '+(L.boss?'boss':'level')+'. &nbsp; Points so far: <b>'+S.score.toLocaleString('en-US')+'</b></div>'+
+    '<div><b>Estimated marks:</b> Game '+rd(e.pm)+' / '+e.M+(e.SM?' &nbsp; Self-marked '+rd(e.ps)+' / '+e.SM:'')+(e.TM?' &nbsp; 🧑‍🏫 '+TEACHER+'\'s mark '+rd(e.pt)+' / '+e.TM+(e.at>=e.TM?' (marked)':' (not marked yet)'):'')+'</div>'+
+    '<div><small>Estimate = the points so far + the rest of the '+(L.boss?'boss':'level')+' at this student\'s own rate so far.</small></div>'+
+    (e.dflt?'<div class="how">⚠️ No question is answered yet. For the rest, this estimate uses 7 right answers in 10.</div>':e.p<0.25?'<div class="how">⚠️ Less than a quarter was played. This estimate is rough.</div>':'')+
+    '<div class="unl ok"><div class="fb ok" style="display:block">✅ <b>'+TEACHER+' recorded this score.</b><br>Finish the '+(L.boss?'boss':'level')+' later and your real score takes its place.</div><button class="btn go back">▶ Keep playing</button></div></div></div>';
+  bellOv.firstChild.scrollTop=0; onTap(bellOv.querySelector('.back'),bellClose);
+}
 function finish(){
+  if(bellBtn) bellBtn.style.display='none'; bellClose();
   store.del(SAVEKEY); hud.style.display='flex'; controls(false); Snd.music(null); Snd.fx('flag'); setTimeout(function(){Snd.fx('win');},900);
   var secs=Math.round((Date.now()-S.t0)/1000), mm=Math.floor(secs/60), ss=secs%60;
   var pct=S.maxMarks?S.marks/S.maxMarks:0, stars=pct>=0.9?3:pct>=0.7?2:pct>=0.4?1:0;
   var best=store.get('bq_best_'+L.id,0); if(S.score>best) store.set('bq_best_'+L.id,S.score);
   scene={update:function(){},draw:function(){ drawBG(L.theme,tick*0.4,0); drawGround(L.theme,0,GROUND,W+10,0); drawChar(ctx,hero,W/2,GROUND-((tick>>4)%2?6:0),(tick>>4)%2?3:0,1,tick); if(tick%2===0) Pt.add(Math.random()*W,-4,1,['#e53935','#ffd54f','#43a047','#1e88e5','#ab47bc'],1.2,110,0.03); Pt.step(); Pt.draw(0); }};
-  var c=show('<div class="center final">'+
-    '<div class="big">'+(L.boss?'🏆 BOSS CLEARED!':'🏁 LEVEL COMPLETE!')+'</div>'+
+  window.BQ.cur={type:'final'};
+  var head='<div class="big">'+(L.free?'⭐ REVIEW COMPLETE!':L.boss?'🏆 BOSS CLEARED!':'🏁 LEVEL COMPLETE!')+'</div>'+
     '<div>'+fill(L.code+' · '+L.short)+'</div>'+
-    '<div class="sname">'+S.name+'</div>'+
-    '<div class="score">'+S.score.toLocaleString('en-US')+' points</div>'+
+    '<div class="sname">'+S.name+'</div>';
+  var body='<div class="score">'+S.score.toLocaleString('en-US')+' points</div>'+
     '<div style="font-size:1.6em">'+'⭐'.repeat(stars)+'☆'.repeat(3-stars)+'</div>'+
     (S.missed.length?'<div><small>🔁 First-try mistakes: '+S.missed.length+' &nbsp; Fixed in Second Chance: '+S.fixed+'</small></div>':'')+
     '<div><b>Game marks:</b> '+S.marks+' / '+S.maxMarks+(S.selfMax?' &nbsp; <b>Self-marked:</b> '+S.self+' / '+S.selfMax:'')+(S.tmax?' &nbsp; <b>🧑‍🏫 '+TEACHER+'\'s mark:</b> '+S.tmarks+' / '+S.tmax:'')+' &nbsp; <b>Time:</b> '+mm+':'+(ss<10?'0':'')+ss+'</div>'+
-    (function(){ var z=store.get('bq_zoo',{}), ks=Object.keys(CMD).filter(function(k){return z[k];}); return ks.length?'<div><b>Your animal book:</b> '+ks.map(function(k){return aniHTML(k)+'×'+z[k];}).join(' &nbsp;')+' <small>('+ks.length+' of 10 animals)</small></div>':''; })()+
-    (S.stamps.length?'<div><b>Notebook stamps ('+S.stamps.length+'):</b> '+S.stamps.map(function(s){return '<span class="stamp">'+s+'</span>';}).join(' ')+'</div>':'')+
-    '<div class="how" style="font-size:1.05em;margin-top:.5em">👉 <b>Go to '+TEACHER+'\'s desk now.</b> Bring your <b>notebook</b> and <b>this screen</b> so he can record your score'+(L.boss?' for full points.':'.')+'<br>Do not close this page.</div>'+
-    (LOCKS?'<div class="unl"><div class="how">🧑‍🏫 <b>'+TEACHER+' only:</b> record the score, then type the teacher code to unlock the next level.</div><input class="name tcode" type="password" autocomplete="off" placeholder="Teacher code"><div class="fb"></div><button class="btn go">Recorded - unlock next level 🔓</button></div>':'')+
-    (L.next?'<div><small>Next: '+fill(L.next)+'</small></div>':'')+
-    '</div>');
-  endUnlock(c);
+    (function(){ var z=store.get('bq_zoo',{}), ks=Object.keys(CMD).filter(function(k){return z[k];}); return ks.length&&!L.free?'<div><b>Your animal book:</b> '+ks.map(function(k){return aniHTML(k)+'×'+z[k];}).join(' &nbsp;')+' <small>('+ks.length+' of 10 animals)</small></div>':''; })()+
+    (S.stamps.length?'<div><b>Notebook stamps ('+S.stamps.length+'):</b> '+S.stamps.map(function(s){return '<span class="stamp">'+s+'</span>';}).join(' ')+'</div>':'');
+  if(L.free){
+    var newBest=S.score>best;
+    var cf=show('<div class="center final">'+head+body+
+      '<div class="how" style="font-size:1.05em;margin-top:.5em">'+(newBest&&best>0?'🏆 <b>NEW BEST SCORE!</b> Your old best was '+best.toLocaleString('en-US')+'.':best>0?'🏆 Your best score: <b>'+best.toLocaleString('en-US')+'</b>. Can you beat it?':'🏆 This is your first score. Play again to beat it!')+'<br>No need to see '+TEACHER+'. Stay at your desk.</div>'+
+      '<div class="row" style="justify-content:center"><button class="btn go again">🔁 Play again</button><button class="btn menu">🏠 More games</button></div></div>');
+    onTap(cf.querySelector('.again'),function(){ location.reload(); }); onTap(cf.querySelector('.menu'),function(){ location.hash='#c-ef'; location.reload(); });
+    return;
+  }
+  var nxt=(L.next?'<div><small>Next: '+fill(L.next)+'</small></div>':'');
+  if(!LOCKS){ show('<div class="center final">'+head+body+'<div class="how" style="font-size:1.05em;margin-top:.5em">👉 <b>Go to '+TEACHER+'\'s desk now.</b> Bring your <b>notebook</b> and <b>this screen</b> so he can record your score'+(L.boss?' for full points.':'.')+'<br>Do not close this page.</div>'+nxt+'</div>'); return; }
+  var c=show('<div class="center final">'+head+
+    '<div class="how" style="font-size:1.05em;margin-top:.5em">👉 <b>Go to '+TEACHER+'\'s desk now.</b> Bring your <b>notebook</b> and <b>this screen</b>.<br>🙈 Your score is hidden. '+TEACHER+' types his code to show it.<br>Do not close this page.</div>'+
+    '<div class="unl"><input class="name tcode" type="password" autocomplete="off" placeholder="Teacher code"><div class="fb"></div><button class="btn go">Show the score 🔓</button></div></div>');
+  endUnlock(c,head,body,nxt);
 }
 
 /* ---------- v9: every animal to the desk + teacher unlock chain ---------- */
@@ -1088,31 +1202,35 @@ function gotoGame(o){ var u=o[0].split('-')[1], me=L.gid.split('-')[1];
   if(/^#g-/.test(location.hash)){ if(u===me){ location.hash='#'+o[0]; location.reload(); } else location.href='../business-quest-unit-'+u+'/#'+o[0]; }
   else location.href=encodeURI(o[1]); }
 function levelGate(){
+  if(L.free){ return pickHero(); }
   if(!LOCKS){ return L.key?askKey():pickHero(); }
   if(OIDX<=0||isOpen(L.gid)){ return pickHero(); }
   var p=ORDER[OIDX-1];
-  teacherGate('<h1>🔒 This level is locked</h1><div>First finish <b>'+p[2]+'</b> and show <b>'+TEACHER+'</b> your score. He unlocks this level.</div>').then(function(){ setOpen(L.gid); hide(); pickHero(); });
+  teacherGate(store.get('bq_rec',{})[p[0]]?'<h1>🔒 '+L.code+'</h1><div>'+(store.get('bq_rec',{})[p[0]].est?'Your early score for <b>'+p[2]+'</b> is recorded. 🔔':'You finished <b>'+p[2]+'</b>. ✅')+'<br>Show this screen to <b>'+TEACHER+'</b>. He opens this level with his code.</div>':'<h1>🔒 This level is locked</h1><div>First finish <b>'+p[2]+'</b> and show <b>'+TEACHER+'</b> your score. He unlocks this level.</div>').then(function(){ setOpen(L.gid); hide(); pickHero(); });
 }
-function endUnlock(c){
-  var box=c.querySelector('.unl'); if(!box) return; var nx=OIDX>=0?ORDER[OIDX+1]:null;
+function endUnlock(c,head,body,nxt){
+  var box=c.querySelector('.unl'); if(!box) return; var nx=OIDX>=0?ORDER[OIDX+1]:null, AUTO=SET.unlockWithScore===true;
   var inp=box.querySelector('input'), fb=box.querySelector('.fb'), done=false;
   function ok(){ if(done) return;
-    if(!codeOK(inp.value.trim())){ fb.className='fb bad'; fb.textContent='Wrong code. Only '+TEACHER+' can record the score.'; inp.value=''; Snd.fx('wrong'); return; }
-    done=true; Snd.fx('unlock'); var r=store.get('bq_rec',{}); r[L.gid]={score:S.score,name:S.name,t:Date.now()}; store.set('bq_rec',r); if(nx) setOpen(nx[0]);
-    box.className='unl ok'; box.innerHTML='<div class="fb ok" style="display:block">✅ <b>'+TEACHER+' recorded your score.</b>'+(nx?'<br>🔓 Unlocked: <b>'+nx[2]+'</b>':'<br>🎉 You finished every Business Quest game!')+'</div>'+(nx?'<button class="btn go">▶ Play the next level</button>':'');
-    var b=box.querySelector('.btn'); if(b) onTap(b,function(){ gotoGame(nx); }); }
+    if(!codeOK(inp.value.trim())){ fb.className='fb bad'; fb.textContent='Wrong code. Only '+TEACHER+' can show the score.'; inp.value=''; Snd.fx('wrong'); return; }
+    done=true; Snd.fx('unlock'); var r=store.get('bq_rec',{}); r[L.gid]={score:S.score,name:S.name,t:Date.now()}; store.set('bq_rec',r); if(nx&&AUTO) setOpen(nx[0]);
+    var c2=show('<div class="center final">'+head+body+
+      '<div class="unl ok"><div class="fb ok" style="display:block">✅ <b>'+TEACHER+' recorded your score.</b>'+
+        (nx?(AUTO?'<br>🔓 Unlocked: <b>'+nx[2]+'</b>':'<br>🔒 Next: <b>'+nx[2]+'</b>. '+TEACHER+' opens it with his code.'):'<br>🎉 You finished every Business Quest game!')+'</div>'+
+        (nx?'<button class="btn go">▶ '+(AUTO?'Play the next level':'Go to the next level')+'</button>':'')+'</div>'+nxt+'</div>');
+    c2.scrollTop=0; var b=c2.querySelector('.unl .btn'); if(b) onTap(b,function(){ gotoGame(nx); }); }
   onTap(box.querySelector('.btn'),ok); inp.addEventListener('keydown',function(e){ if(e.key==='Enter') ok(); });
 }
 (function(){ var all=[]; L.stages.forEach(function(st){ (st.items||st.qs||[]).forEach(function(it){ if(it.type==='animal'&&!it.quick) all.push(it); }); });
-  if(all.length&&all.every(function(a){return a.desk;})) L.stages.forEach(function(st){ (st.scenes||[]).forEach(function(sc){ (sc.lines||[]).forEach(function(ln){ if(typeof ln[1]==='string') ln[1]=ln[1].replace('One animal in this level is mine, {name}. Bring that answer to my desk and I will mark it.','Every animal in this level is mine, {name}. After each animal, bring your notebook to my desk and I will check it.'); }); }); }); })();
+  if(all.length>1&&all.every(function(a){return a.desk;})) L.stages.forEach(function(st){ (st.scenes||[]).forEach(function(sc){ (sc.lines||[]).forEach(function(ln){ if(typeof ln[1]==='string') ln[1]=ln[1].replace('One animal in this level is mine, {name}. Bring that answer to my desk and I will mark it.','Every animal in this level is mine, {name}. After each animal, bring your notebook to my desk and I will check it.'); }); }); }); })();
 function keepAwake(){ try{ if(navigator.wakeLock) navigator.wakeLock.request('screen').catch(function(){}); }catch(e){} }
 document.addEventListener('visibilitychange',function(){ if(document.visibilityState==='visible'&&S.t0) keepAwake(); });
 /* ---------- start screens ---------- */
 function start(){
   countMax();
   scene={update:function(){},draw:function(){ drawBG(L.theme,tick*0.4,L.boss?0.5:0); drawGround(L.theme,0,GROUND,W+10,0); HEROES.forEach(function(h,i){ var x=((tick*0.7+i*46)%(W+140))-70; drawChar(ctx,h,x,GROUND,(tick>>3)%2?1:2,1,tick); }); }};
-  var c=show('<div class="center"><div class="logo">'+'BUSINESS QUEST'.split('').map(function(ch){return ch===' '?' ':'<span>'+ch+'</span>';}).join('')+'</div><div style="margin:.4em 0;font-weight:800">'+L.code+' · '+L.chapter+'</div><div class="big" style="font-size:1.6em;color:'+(L.boss?'#c62828':'#0d47a1')+'">'+(L.boss?'🌪️ ':'')+L.title+'</div>'+
-    '<div style="margin:.3em 0">📓 Have your <b>notebook</b> and <b>pen</b> ready. 🎧 Headphones are best.</div><button class="btn go blink" style="font-size:1.3em">▶ TAP TO START</button></div>');
+  var c=show('<div class="center"><div class="logo">'+'BUSINESS QUEST'.split('').map(function(ch){return ch===' '?' ':'<span>'+ch+'</span>';}).join('')+'</div><div style="margin:.4em 0;font-weight:800">'+L.code+' · '+L.chapter+'</div><div class="big" style="font-size:1.6em;color:'+(L.boss?'#c62828':'#0d47a1')+'">'+(L.boss?'🌪️ ':L.free?'⭐ ':'')+L.title+'</div>'+
+    '<div style="margin:.3em 0">'+(L.free?'⭐ <b>Early finisher game.</b> No notebook. No code. Beat your best score!':'📓 Have your <b>notebook</b> and <b>pen</b> ready. 🎧 Headphones are best.')+'</div><button class="btn go blink" style="font-size:1.3em">▶ TAP TO START</button></div>');
   clickOnce(c.querySelector('.btn')).then(function(){
     Snd.resume(); Snd.fx('coin'); keepAwake();
     try{ var de=document.documentElement; if(de.requestFullscreen) de.requestFullscreen().catch(function(){}); if(screen.orientation&&screen.orientation.lock) screen.orientation.lock('landscape').catch(function(){}); }catch(e){}
@@ -1120,7 +1238,7 @@ function start(){
   });
 }
 function askName(){
-  var c=show('<h1>✏️ What is your name?</h1><div>Type your <b>real first and last name</b>. '+TEACHER+' will see it on your score screen.</div><input class="name" maxlength="40" autocomplete="off" placeholder="First name Last name"><div class="fb"></div><button class="btn go">OK ▶</button>');
+  var c=show('<h1>✏️ What is your name?</h1><div>Type your <b>real first and last name</b>.'+(L.free?'':' '+TEACHER+' will see it on your score screen.')+'</div><input class="name" maxlength="40" autocomplete="off" placeholder="First name Last name"><div class="fb"></div><button class="btn go">OK ▶</button>');
   var inp=c.querySelector('input'), fb=c.querySelector('.fb'); inp.value=store.get('bq_name','');
   setTimeout(function(){ try{inp.focus();}catch(e){} },200);
   function ok(){ var v=inp.value.trim().replace(/\s+/g,' '); if(v.length<3||v.indexOf(' ')<0){ fb.className='fb bad'; fb.textContent='Please type your first AND last name.'; Snd.fx('wrong'); return; }
@@ -1158,7 +1276,7 @@ onTap($('#mus'),function(e){ e.stopPropagation(); $('#mus').style.opacity=Snd.to
 $('#mus').addEventListener('click',function(e){e.stopPropagation();});
 $('#hT').textContent=L.code+' · '+L.short;
 document.title=L.code+' '+L.title+' - Business Quest';
-window.BQ.tele={dj:0,brick:0}; window.BQ.buildCourse=buildCourse; window.BQ.S=S; window.BQ.K=K; window.BQ.preview=function(th,pl,cam){ curPlace=pl; scene={update:function(){},draw:function(){ drawBG(th,cam,0); drawGround(th,0,GROUND,W+10,cam); }}; }; window.BQ.CMD=CMD; window.BQ.Snd=Snd; window.BQ.HEROES=HEROES;
+window.BQ.tele={dj:0,brick:0}; bellInit(); window.BQ.buildCourse=buildCourse; window.BQ.S=S; window.BQ.K=K; window.BQ.preview=function(th,pl,cam){ curPlace=pl; scene={update:function(){},draw:function(){ drawBG(th,cam,0); drawGround(th,0,GROUND,W+10,cam); }}; }; window.BQ.CMD=CMD; window.BQ.Snd=Snd; window.BQ.HEROES=HEROES;
 if(L.icon) $('#stI').textContent=L.icon;
 /* ---------- v8: real Mongolian places and landmarks ---------- */
 var curPlace=L.place||null;
